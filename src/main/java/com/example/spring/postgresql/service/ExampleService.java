@@ -20,12 +20,8 @@ public class ExampleService {
 	
 	public ExampleModel getById(Integer id) {
 		Optional<ExampleModel> result = exampleRepository.findById(id);
-		
-		if (result.isPresent()) {
-			return result.get();
-		} else {
-			return null;
-		}
+
+		return result.orElse(null);
 	}
 	
 	public ExampleModel include(ExampleModel model) {
